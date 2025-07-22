@@ -18,8 +18,32 @@ namespace Algorithms.Core.FibonacciSequence
 
         public static IEnumerable<int> Generate(int n)
         {
-            var result = new List<int> { 0 };
+            int initialValue = 0;
+            int nextValue = 1;
+            var result = new List<int>();
 
+            for (int i = 0; i < n; i++)
+            {
+                result.Add(initialValue);
+
+                var prevValue = initialValue;
+                initialValue = nextValue;
+                nextValue += prevValue;
+
+            }
+
+            return result;
+        }
+
+
+        public static IEnumerable<int> Generate1(int n)
+        {
+            var result = new List<int>();
+
+            if (n > 0)
+            {
+                result.Add(0);
+            }
             if (n > 1)
             {
                 result.Add(1);

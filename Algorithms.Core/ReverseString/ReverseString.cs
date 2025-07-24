@@ -18,13 +18,11 @@ namespace Algorithms.Core.SumDigitsOfOneInteger
 
         public static string Generate(string word)
         {
-            var wordLength = word.Length;
-            var chars = new char[wordLength];
+            var chars = new List<char>(word.Length);
 
-            for (int i = 0; i < wordLength; i++)
+            for (int i = word.Length - 1; i >= 0; i--)
             {
-                var letter = word[i];
-                chars[wordLength - (i + 1)] = letter;
+                chars.Add(word[i]);
             }
 
             return string.Join(",", chars).Replace(",", "");
